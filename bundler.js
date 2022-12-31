@@ -162,8 +162,10 @@ export async function bundleInstall(gemfile, lockFile, platform, engine, rubyVer
     envOptions = { env: { ...process.env } }
   }
 
-  console.log(`process.env: ${process.env}`);
-  console.log(`envOptions: ${envOptions}`);
+  console.log(`process.env:`);
+  console.dir(process.env, { depth: null });
+  console.log(`envOptions:`);
+  console.dir(envOptions, { depth: null });
 
   // config
   const cachePath = 'vendor/bundle'
