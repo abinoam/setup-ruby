@@ -158,7 +158,12 @@ export async function bundleInstall(gemfile, lockFile, platform, engine, rubyVer
     // we need to specify which Bundler version to use explicitly until the lockfile exists.
     console.log(`Setting BUNDLER_VERSION=${bundlerVersion} for "bundle config|lock" commands below to ensure Bundler 1 is used`)
     envOptions = { env: { ...process.env, BUNDLER_VERSION: bundlerVersion } }
+  } else {
+    envOptions = { env: { ...process.env } }
   }
+
+  console.log(`process.env: ${process.env}`);
+  console.log(`envOptions: ${envOptions}`);
 
   // config
   const cachePath = 'vendor/bundle'
